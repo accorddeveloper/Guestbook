@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Guestbook.Models.GuestbookEntry>
+
+<h2>My Guestbook Entries</h2>
+
+<p>@Html.ActionLink("Add new Entry", "Create", "Guestbook")</p>
+<p>@Html.ActionLink("Comment Summary", "CommentSummary", "Guestbook")</p>
+@foreach (var entry in Model) //oppure (var entry in ViewBag.Entries) se uso ViewBag per passare i dati
+{
+    <section class="contact">
+        <header>
+            <h3>@Html.ActionLink(entry.Message, "Show", "Guestbook", new { id = entry.Id }, null)</h3>
+        </header>
+        <p>
+            Posted by @entry.Name on @entry.DateAdded.ToLongDateString() at @entry.DateAdded.ToLongTimeString() with id @entry.Id
+        </p>
+    </section>
+}

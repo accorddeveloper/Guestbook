@@ -1,0 +1,24 @@
+﻿@model Guestbook.Models.GuestbookEntry
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@Html.ValidationSummary()
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.LabelFor(Model => Model.Name)
+        @Html.EditorFor(Model => Model.Name) <!-- EditorFor lascia scegliere al framework l'editor più opportuno in base al tipo di dato-->
+    </p>
+    <p>
+        @Html.LabelFor(Model => Model.Message)
+        @Html.EditorFor(Model => Model.Message)
+    </p>
+    <p><input type="submit" value="Save" /></p>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,18 @@
+﻿@model Guestbook.Models.GuestbookEntry
+
+<h2>Add new Entry</h2>
+@Html.ValidationSummary()
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.LabelFor(m => m.Name)
+        @Html.EditorFor(m => m.Name) <!-- EditorFor lascia scegliere al framework l'editor più opportuno in base al tipo di dato-->
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Message)
+        @Html.EditorFor(m => m.Message)
+    </p>
+    <p><input type="submit" value="Save" /></p>
+}
+
+
